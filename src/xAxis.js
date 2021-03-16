@@ -23,8 +23,8 @@ export const buildXAxis = (xScale) => {
       .attr("stroke-opacity", 0.0)
       .attr("stroke-dasharray", "10 5 5 5"))
     .append("text")
-      .text("Race Year")
-      .attr("transform", `translate(${innerWidth / 2}, ${35})`)
+      .text("Year")
+      .attr("transform", `translate(${innerWidth / 6}, ${35})`)
       .attr("fill", "var(--primary-color)")
       .style("font-size", "1.7em")
       ;

@@ -22,10 +22,10 @@ export const buildYAxis = ( yScale ) => {
       .attr("stroke-opacity", 0.0)
       .attr("stroke-dasharray", "4 1 3 1 2 1"))
     .append("text")
-      .text("Alpe d'Huez Race Time")
+      .text("Month")
       .attr("transform", `translate(${-margin.left + padding}, ${0})`)
       .attr("text-anchor", "start")
       .attr("fill", "var(--primary-color)")
-      .style("font-size", "1.7em")
+      .style("font-size", "1rem")
       ;
 }

@@ -10,7 +10,7 @@ export const legend = (
   ) => {
   
 chart.append("g")
-.attr("transform", `translate(${(innerWidth - 140)}, ${-13})`)
+.attr("transform", `translate(${(innerWidth - 250)}, ${350})`)
 .attr("id", "legend")
 .append("rect")
   .attr("fill", "var(--secondary-color)")
@@ -51,5 +51,11 @@ select("#legend").selectAll("legend-label")
     .style("font-size", "0.6em")
     .attr("class", "legend-label")
     .attr("fill", "var(--primary-color)")
+
+  select("#legend")
+    .append("text")
+    .text("Variance from base temperature (8.66℃)")
+    .attr("font-size", "0.9em")
+    .attr("y", 70)
 
 }

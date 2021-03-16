@@ -6,19 +6,24 @@ export const parseData = (data) => {
   // Console dataset to examine (comment out afterwards)
   // console.log(data);
 
-  // Doping: string, Name: string, Nationality: string (iso 3166-1 alpha-3),
-  // Place: number, Seconds: number, Time: string (converted string of Seconds)
-  // URL: string (src for Doping), Year: number
+  // Object
+  // baseTemperature: number (8.66)
+  // monthlyVariance: Array (3153)
+  // // month: num
+  // // variance: num
+  // // year: num
 
-  return data.map(d => {
+  return data.monthlyVariance.map(d => {
     return {
       ...d,
-      TimeMins: new Date(d.Seconds * 1000),
-      // used string literal to force parsing the number year as year
-      // alternative would be (d.Year, 0) to indicate YYYY jan 1, 00 etc.
-      Year: new Date(`${d.Year}`),
-      // Produce boolean true if doping alegations present in the Doping string
-      dopingBool: (d.Doping) ? true : false
+      // in-data starts month at 1 rather than js 0-index, so subtract before
+      // ceating precise date 
+      preciseDate: new Date(d.year, (d.month - 1)),
+      jsMonth: d.month - 1,
+      jsYear: new Date(d.year, 0),
+      // actual temperature for month, given data-provided baseTemperature 8.66
+      // degrees Celsius 
+      temp: d.variance + 8.66,
     }
   })
 }

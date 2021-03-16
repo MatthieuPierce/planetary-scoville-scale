@@ -17,18 +17,18 @@ import { buildXAxis } from './xAxis';
 import { buildYAxis } from './yAxis';
 
 // NON-CODE PLANNING: CHART OBJECTIVES
-// Race times for the 35 fastest times up Alpe d'Huez,
-// measured in minutes and seconds (y-axis) 
+// Global temperatures over month (y-axis)
 // vs over years; (x-axis)
-// categorical color to distinguish doping allegations: true/false (c-axis)
-// tooltip with details: {Nationality} / {Name} / {Time} in Year /
-// / {Doping notes} or {noting lack of doping notes} 
+// color scale to indicate temperature (c-axis)
+// tooltip with data-year property (optional: temperature etc)
+//
+//  
 
 // Chart basic construction & layout parameters in chartParameters.js
 
 let dataset;
 // Datset source
-const dataUrl = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/cyclist-data.json';
+const dataUrl = 'https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/global-temperature.json';
 
 // Fetch Dataset & Render Marks
 json(dataUrl).then(data => {
@@ -36,7 +36,7 @@ json(dataUrl).then(data => {
   // Parse dataset function in parseData.js
   dataset = parseData(data);
   // Console out parsed dataset for examination
-  // console.log(dataset);
+  console.log(dataset);
 
   // Calc xMin xMax yMin yMax (or extent)
   const xMin = min(dataset, xValue);

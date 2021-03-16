@@ -6,12 +6,12 @@ export const padding = 30;
 export const margin = {
   top: padding,
   right: padding,
-  bottom: padding + 25,
+  bottom: padding + 75,
   left: padding + 35
 };
 
-let width = 500;
-let height = 375;
+let width = 600;
+let height = 450;
 export const innerWidth = width - margin.left - margin.right;
 export const innerHeight = height - margin.top - margin.bottom;
 

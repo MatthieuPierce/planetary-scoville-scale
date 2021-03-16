@@ -6,18 +6,20 @@
   --doping-color: hsla(20, 70%, 50%, 1);
   --no-doping-color: hsla(150, 70%, 50%, 1); */
 
-  --primary-color: 	#e7e8e9;
-  --secondary-color: #101820;
+  --primary-color: 	#101820;
+  --secondary-color: hsla(0, 0%, 98%, 1);
+  --tertiary-color: #d2d3d5;
   --doping-color: #d14124;
   --no-doping-color: #20aa3f;
   --mark-stroke-color: var(--secondary-color);
   --line-stroke-color: var(--primary-color);
-  --bg-color: hsla(210, 33%, 70%);
+  --bg-color: hsla(0, 0%, 99%, 1);
 }
+
 
 body {
   background: var(--bg-color);
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-family: 'Inter', sans-serif;
   margin: 0;
   height: 100%;
@@ -32,12 +34,29 @@ body {
   align-content: center; */
 }
 
+#container {
+  background: var(--tertiary-color);
+  padding: 0.2rem;
+  margin: 1rem 0 0 0;
+  max-width: 700px;
+}
+
 main {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 700px;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+
 }
 
 #chart-container {

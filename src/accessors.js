@@ -1,7 +1,7 @@
 
 // Accessor functions 
 
-export const xValue = d => d["Year"];
+export const xValue = d => d["jsYear"];
 
 export const yValue = d => d["TimeMins"];
 
