@@ -6,7 +6,7 @@ export const buildXAxis = (xScale) => {
 
   chart.append("g")
     .attr("id", "x-axis")
-    .attr("transform", `translate(0, ${innerHeight +10})`)
+    .attr("transform", `translate(0, ${innerHeight +15})`)
     .style("color", "var(--primary-color)")
     .call(xAxis)
     .call(g => g.selectAll("#x-axis .tick text")
@@ -24,7 +24,7 @@ export const buildXAxis = (xScale) => {
       .attr("stroke-dasharray", "10 5 5 5"))
     .append("text")
       .text("Year")
-      .attr("transform", `translate(${innerWidth / 6}, ${35})`)
+      .attr("transform", `translate(${innerWidth / 6}, ${45})`)
       .attr("fill", "var(--primary-color)")
       .style("font-size", "1.7em")
       ;

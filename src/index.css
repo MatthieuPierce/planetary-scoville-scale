@@ -38,7 +38,8 @@ body {
   background: var(--tertiary-color);
   padding: 0.2rem;
   margin: 1rem 0 0 0;
-  max-width: 700px;
+  width: 100%;
+  max-width: 900px;
 }
 
 main {
@@ -66,7 +67,7 @@ h2 {
   overflow: hidden;
   padding: 0;
   /* padding-bottom calc trick for resizing svg: 100% * height / width ratio */
-  padding-bottom: calc(100% * 3 / 4);
+  padding-bottom: calc(100% * 9 / 16);
   position: relative;
   vertical-align: top;
   width: 100%;
