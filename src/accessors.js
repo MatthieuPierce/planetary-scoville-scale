@@ -3,6 +3,6 @@
 
 export const xValue = d => d["jsYear"];
 
-export const yValue = d => d["jsMonth"];
+export const yValue = d => d["monthString"];
 
 export const colorValue = d => d["variance"];

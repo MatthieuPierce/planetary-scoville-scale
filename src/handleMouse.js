@@ -8,27 +8,25 @@ import { margin } from './chartParameters';
 export const handleMouseOver = (event, d) => {
   // Style current mark
   select(event.currentTarget)
-    .attr("stroke-width", "1px")
-    .attr("stroke", "var(--primary-color)")
+    // .attr("stroke-width", "1px")
+    // .attr("stroke", "var(--primary-color)")
     .attr("opacity", 1)
 
     if (event.currentTarget.className.baseVal !== `legend-mark`) {
-  // Change tooltip message depending on presence of d.Doping value
-  if (d.dopingBool) {
+  // Change tooltip message depending on whether d variance is positive
+  if (d.variance > 0 ) {
     tooltip
       .html(`
-          <p>${d.Nationality}</p>
-          <p><strong>${d.Name}</strong></p>
-          <p>${d.Time} in ${timeFormat("%Y")(d.Year)}</p>
-          <p class="doping">${d.Doping}</p>
+          <p>${d.monthStringShort} ${d.year}</p>
+          <p><strong>${d.tempString}</strong></p>
+          <p class="hotter">${d.varianceString}</p>
         `)
   } else {
     tooltip
       .html(`
-          <p>${d.Nationality}</p>
-          <p><strong>${d.Name}</strong></p>
-          <p>${d.Time} in ${timeFormat("%Y")(d.Year)}</p>
-          <p class="no-doping">Blessedly, no doping allegations yet</p>
+      <p>${d.monthStringShort} ${d.year}</p>
+      <p><strong>${d.tempString}</strong></p>
+      <p class="cooler">${d.varianceString}</p>
         `)
   }
 
@@ -69,9 +67,9 @@ export const handleMouseOver = (event, d) => {
 // Handle mouseOut/leave
 export const handleMouseOut = (event, d) => {
   select(event.currentTarget)
-    .attr("opacity", 0.5)
-    .attr("stroke", "var(--secondary-color)")
-    .attr("stroke-width", "1px");
+    .attr("opacity", 1)
+    // .attr("stroke", "var(--secondary-color)")
+    // .attr("stroke-width", "1px");
 
   tooltip
     .attr("data-year", null)

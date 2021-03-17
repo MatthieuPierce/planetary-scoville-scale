@@ -1,17 +1,18 @@
 import { select } from 'd3';
 
 // Chart parameters
-export const padding = 20;
+export const padding = 30;
 
 export const margin = {
   top: padding +10,
   right: padding,
-  bottom: padding + 75,
-  left: padding + 35
+  bottom: padding + 100,
+  left: padding + 30
 };
-
-let width = 500;
-let height = 281.25;
+// let width = 500;
+// let height = 281.25;
+let width = 900;
+let height = 506.25;
 export const innerWidth = width - margin.left - margin.right;
 export const innerHeight = height - margin.top - margin.bottom;
 
@@ -24,6 +25,7 @@ export let chart = select('#chart-container')
     .attr("svg-content", true)
     .style("background", "var(--secondary-color)")
     .style("color", "var(--primary-color)")
+    .attr("font-size", 11)
   //Margin convention
   .append('g')
     .attr("transform", `translate(${margin.left}, ${margin.top})`)

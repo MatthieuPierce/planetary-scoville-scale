@@ -1,8 +1,8 @@
-import { axisBottom, timeFormat } from 'd3';
+import { axisBottom, timeFormat,  timeYear } from 'd3';
 import { chart, innerWidth, innerHeight } from './chartParameters'
 
 export const buildXAxis = (xScale) => {
-  const xAxis = axisBottom(xScale);
+  const xAxis = axisBottom(xScale).ticks(timeYear.every(15));
 
   chart.append("g")
     .attr("id", "x-axis")
