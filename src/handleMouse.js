@@ -6,11 +6,12 @@ import { margin } from './chartParameters';
 
 // Handle mouseOver/focus on marks
 export const handleMouseOver = (event, d) => {
-  // Style current mark
+
+  // Style currently-focused mark
   select(event.currentTarget)
-    // .attr("stroke-width", "1px")
-    // .attr("stroke", "var(--primary-color)")
-    .attr("opacity", 1)
+    .attr("stroke-width", "1")
+    .attr("stroke", "var(--primary-color)")
+    // .attr("opacity", 1)
 
     if (event.currentTarget.className.baseVal !== `legend-mark`) {
   // Change tooltip message depending on whether d variance is positive
@@ -68,8 +69,11 @@ export const handleMouseOver = (event, d) => {
 export const handleMouseOut = (event, d) => {
   select(event.currentTarget)
     .attr("opacity", 1)
-    // .attr("stroke", "var(--secondary-color)")
-    // .attr("stroke-width", "1px");
+    .attr("stroke", null)
+    .attr("stroke-width", null)
+    // .attr("transform", null)
+
+    ;
 
   tooltip
     .attr("data-year", null)

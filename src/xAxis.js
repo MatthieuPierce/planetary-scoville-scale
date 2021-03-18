@@ -32,16 +32,29 @@ export const buildXAxis = (xScale) => {
       ;
 
   // Sassy note
+  let oldestLivingPersonBorn = new Date(1903, 0, 2);
   chart
     .append("line")
       .attr("id", "snarky-note")
-      .attr("x1", xScale(new Date(1903, 2, 2)))
-      .attr("x2", innerWidth + 100 )
-      .attr("y1", `${0}`)
-      .attr("y2", innerHeight + 100)
+      .attr("x1", xScale(oldestLivingPersonBorn) )
+      .attr("x2", xScale(oldestLivingPersonBorn) )
+      .attr("y1", `${-15}`)
+      .attr("y2", innerHeight)
+      .attr("stroke", "var(--primary-color)")
       .attr("stroke-opacity", 1)
-      .attr("stroke-width", 2.5)  
-      .attr("stroke-dasharray", "1 1")
+      .attr("stroke-width", 0.5)  
+      .attr("stroke-dasharray", "9 4 1 5")
+    
+    chart.append("text")
+      .text(`Oldest living person born`)
+      // .text(`Oldest living person born ${timeFormat("%b %e, %Y")
+      //   (oldestLivingPersonBorn)}`)
+        .attr("fill", "var(--primary-color)")
+        .style("font-size", `0.9em`)
+        .attr("x", xScale(oldestLivingPersonBorn) + 5)
+        .attr("y", -10 )
+
+
 
     
     }

@@ -92,11 +92,7 @@ json(dataUrl).then(data => {
     (t) => interpolateRdBu(1 - t))
     ;
 
-  // xAxis -- buildXAxis function in xAxis.js
-  buildXAxis(xScale);
 
-  // xAxis -- buildYAxis function in yAxis.js
-  buildYAxis(yScale);
 
   // Tooltip -- from tooltip.js)
 
@@ -120,6 +116,14 @@ json(dataUrl).then(data => {
     colorScale,
     xBand
     );
+
+  // xAxis -- buildXAxis function in xAxis.js
+  buildXAxis(xScale);
+
+  // yAxis -- buildYAxis function in yAxis.js
+  buildYAxis(yScale);
+
+
   }
 )
 // Gotta catch those errors
