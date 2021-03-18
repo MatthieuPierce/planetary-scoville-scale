@@ -61,6 +61,10 @@ h2 {
 
 }
 
+text {
+  font-family: 'Inter', sans-serif;
+}
+
 #chart-container {
   /* display: inline-block; */
   /* filter: drop-shadow(0rem 5rem 10rem var(--primary-color)); */

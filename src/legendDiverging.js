@@ -42,7 +42,7 @@ export const makeDivergingLegend = (
   // to be used as the dataset for the legend marks
 
   // stepSize controls number of color bands
-  let stepSize = 0.1
+  let stepSize = 0.2
   
   let colorScaleBot = min(colorScale.domain())
   let colorScaleTop = max(colorScale.domain())
@@ -75,9 +75,14 @@ export const makeDivergingLegend = (
 
   // Main legend group
   let legend = chart.append("g")
+    // Translate to X left and Y top of chart
     .attr("transform", 
-      `translate(${ (innerWidth / 2) - legendWidth / 2 }, 
-      ${innerHeight + legendHeight - legendHeight / 2})`)
+      `translate(${ (innerWidth / 4) - legendWidth / 2 }, 
+      ${-(legendHeight / 5) })`)
+    // Translate to X center and Y bottom of chart
+    // .attr("transform", 
+    //   `translate(${ (innerWidth / 2) - legendWidth / 2 }, 
+    //   ${innerHeight + legendHeight - legendHeight / 2})`)
     .attr("id", "legend")
   
   // Background Rect (final bandwidth value may exceed legendWidth )
@@ -122,10 +127,11 @@ export const makeDivergingLegend = (
   legend
     .append("text")
       .text("Variance from global base temperature (8.66℃)")
-      .attr("font-size", "1em")
-      .attr("x", 30)
-      .attr("y", 30)
+      .attr("font-size", "0.9em")
       .style("font-weight", "bold")
+      .attr("x", 30)
+      .attr("y", -17)
+      // .style("font-family", `Inter,sans-serif`)
 
   // Legend X-Axis
   const legendXAxis = axisBottom(legendXScale).ticks(8);
@@ -144,7 +150,9 @@ export const makeDivergingLegend = (
       .attr("y2", -10)
       .attr("transform", `translate(${0}, ${-0})`)
       .attr("stroke", "var(--primary-color)")
-      .attr("stroke-dasharray", "1 1")
+      .attr("stroke-width", 0.5)
+
+      // .attr("stroke-dasharray", "1 1")
       )
     .call(g => g.select(".domain")
       .attr("stroke-opacity", 0.0)

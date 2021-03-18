@@ -31,28 +31,47 @@ export const buildXAxis = (xScale) => {
     //   .style("font-size", "1.7em")
       ;
 
-  // Sassy note
+  // Snarky highlight note group
   let oldestLivingPersonBorn = new Date(1903, 0, 2);
-  chart
+  
+  let snarkyGroup = chart.append("g")
+    .attr("id", "snarky-group")
+    .attr("class", "snarky")
+    .attr("transform", `translate(${xScale(oldestLivingPersonBorn)}, 0)`)
+
+  snarkyGroup
     .append("line")
-      .attr("id", "snarky-note")
-      .attr("x1", xScale(oldestLivingPersonBorn) )
-      .attr("x2", xScale(oldestLivingPersonBorn) )
-      .attr("y1", `${-15}`)
+      .attr("id", "snarky-line")
+      .attr("x1", 0 )
+      .attr("x2", 0 )
+      .attr("y1", `${-30}`)
       .attr("y2", innerHeight)
       .attr("stroke", "var(--primary-color)")
       .attr("stroke-opacity", 1)
       .attr("stroke-width", 0.5)  
       .attr("stroke-dasharray", "9 4 1 5")
     
-    chart.append("text")
-      .text(`Oldest living person born`)
-      // .text(`Oldest living person born ${timeFormat("%b %e, %Y")
-      //   (oldestLivingPersonBorn)}`)
+
+
+    snarkyGroup.append("text")
+      // .text(`Oldest living person born`)
+      .text(`Oldest living person born ${timeFormat("%b %e, %Y")
+        (oldestLivingPersonBorn)}`)
+        .attr("id", "snarky-text")
         .attr("fill", "var(--primary-color)")
         .style("font-size", `0.9em`)
-        .attr("x", xScale(oldestLivingPersonBorn) + 5)
-        .attr("y", -10 )
+        .style("font-weight", "bold")
+        .attr("x", 5)
+        .attr("y", -30 )
+      
+    snarkyGroup.append("circle")
+        .attr("cx", 0)
+        .attr("cy", -30 )
+        .attr("r", 3)
+        .attr("opacity", 1)
+        .attr("fill", "var(--primary-color)")
+        .attr("id", "snarky-circle")
+        
 
 
 
