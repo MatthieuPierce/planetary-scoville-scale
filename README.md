@@ -1,5 +1,5 @@
 # Planetary Scoville Scale
-A responsive d3-only heat map with color legend.
+A responsive d3-only heat map with interpolated gradientesque color legend.
 
 ## Demo
 [See the chart here](https://matthieupierce.github.io/planetary-scoville-scale/). 
