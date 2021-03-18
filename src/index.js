@@ -48,7 +48,7 @@ json(dataUrl).then(data => {
   console.log(dataset);
 
   //Console out something interesting
-  console.log(innerHeight);
+  // console.log(innerHeight);
 
   // Calc xMin xMax yMin yMax (or extent)
   const xMin = min(dataset, xValue);
@@ -92,17 +92,6 @@ json(dataUrl).then(data => {
     (t) => interpolateRdBu(1 - t))
     ;
 
-  const colorKeys = colorScale.domain().map(domainVal => {
-    switch (domainVal) {
-      case true:
-        return `Doping allegations`;
-      case false: 
-        return `No doping allegations`;
-      default:
-        return `No info on doping allegations`;
-    }
-  })
-
   // xAxis -- buildXAxis function in xAxis.js
   buildXAxis(xScale);
 
@@ -120,16 +109,14 @@ json(dataUrl).then(data => {
   // Diverging Color Legend (mini-chart) from legendDiverging.js
   makeDivergingLegend(
     dataset,
-    colorScale,
-    cMin,
-    cMax
+    colorScale
   );
 
   // Marks (circles) -- from marks.js
   marks(
     dataset, 
     xScale, 
-    yScale, 
+    yScale,
     colorScale,
     xBand
     );

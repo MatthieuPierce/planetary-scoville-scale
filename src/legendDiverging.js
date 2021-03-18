@@ -1,136 +1,154 @@
 import { 
   axisBottom,
-  format, 
-  select, 
+  extent,
+  format,
+  max,
+  min,
+  range, 
+  select,
+  scaleBand,
   scaleLinear,
   timeFormat,  
-  timeYear 
+  timeYear, 
+  scaleDiverging
 } from 'd3';
 import { chart, innerWidth, innerHeight } from './chartParameters'
 import { colorValue } from './accessors';
 import { handleMouseOver, handleMouseOut } from './handleMouse';
 
-// Color legend that is itself a mini chart
+// Objective: Color legend that is itself a mini chart
+// One dimensional chart, labeling diverging color scale along x-axis
 
-// one dimensional chart, showing the color scale
+// Legend's x-axis accessor the main chart's colorValue
+// in this case d["variance"]
+const legendXValue = colorValue;
+const legendColorValue = colorValue; 
 
-// legend's x-axis accessor the main chart's colorValue
-const legendXValue = colorValue; 
+// legend parameters, could easily move into function
+const legendWidth = 300;
+const legendHeight = 100;
 
+export const makeDivergingLegend = (
+  dataset, 
+  colorScale, 
+ ) => {
 
-export const makeDivergingLegend = (dataset, colorScale, cMin, cMax) => {
+  // DATASET 
   
-  const legendXScale = scaleBand()
-  .domain(dataset.map(legendXValue))
-  .range([0, innerWidth])
-  .paddingInner(0)
-  .paddingOuter(0);;
+  // To create marks that align with the color scheme & utilize bandwidth(),
+  // create evenly distributed array of values between max and min of 
+  // the original colorScale domain
+  // e.g. d3.range(min, max, step).concat(max)
+  // to be used as the dataset for the legend marks
 
-  const legendXAxis = axisBottom(legendXScale);
+  // stepSize controls number of color bands
+  let stepSize = 0.1
+  
+  let colorScaleBot = min(colorScale.domain())
+  let colorScaleTop = max(colorScale.domain())
+  // divergenceDataToBands is the dataset to be used in legend-marks
+  let divergenceDataToBands = range( colorScaleBot, colorScaleTop, stepSize )
+    .concat(colorScaleTop);
+  // let divergenceLength = divergenceToBands.length;
 
+
+
+  // SCALES - 3
+
+  // legendColorScale takes the diverging colorScale from the primary chart for
+  // the legend marks' fill values. Carries the interprolator function.
+  const legendColorScale = colorScale.copy();
+
+  // colorBandsScale is a new band Scale for mark width
+  let colorBandsScale = scaleBand()
+    .domain( divergenceDataToBands )
+    .range( [ 0, legendWidth ] )
+    .paddingInner(0)
+    .paddingOuter(0)
+
+  // legendXScale takes the diverging colorScale from the primary chart,
+  // modified to the range of the legend's dimensions
+  // for use in the legendXAxis AND x position for band marks
+  const legendXScale = colorScale.copy()
+    .range( [ 0, ( legendWidth / 2 ), legendWidth ] );
+  
+
+  // Main legend group
   let legend = chart.append("g")
-  .attr("transform", `translate(${(innerWidth - 250)}, ${350})`)
-  .attr("id", "legend")
-  .append("rect")
-    .attr("fill", "var(--secondary-color)")
-    .attr("opacity", 1)
-    .attr("height", 55)
-    .attr("width", 150)
-    .attr("id", "legend-box")
-    .attr("stroke", "var(--primary-color)")
-    .attr("stroke-opacity", 0.3)
-    .attr("stroke-dasharray", "10 5 5 5");
+    .attr("transform", 
+      `translate(${ (innerWidth / 2) - legendWidth / 2 }, 
+      ${innerHeight + legendHeight - legendHeight / 2})`)
+    .attr("id", "legend")
   
-  legend.selectAll("rect .swatch")
-    .data(dataset)
+  // Background Rect (final bandwidth value may exceed legendWidth )
+  // legend
+  //   .append("rect")
+  //     .attr("fill", "var(--primary-color)")
+  //     .attr("opacity", 0.1)
+  //     .attr("width", legendWidth + 5)
+  //     .attr("height", legendHeight)
+  //     .attr("y", -legendHeight/1.5)
+  //     .attr("id", "legend-box")
+  //     .attr("class", "legend bg")
+  //     .attr("stroke", "var(--primary-color)")
+  //     .attr("stroke-opacity", 0.5)
+  //     .attr("stroke-dasharray", "5 5 5 5")
+  //   ;
+
+  // Legend Marks
+  // x position set by legendXScale (linear diverging with spatial range)
+  // fill set by legendColorScale (diverging with interpolated color space)
+  // width set by colorBandsScale.bandwith()thanks to
+  //     synthetically-even domain data from divergenceDataToBands made above
+  legend.selectAll("rect.legend-mark")
+    .data(divergenceDataToBands)
     .enter()
     .append("rect")
-    .attr("class", "swatch")
-    // .attr("data-year", xValue)
-    // .attr("data-month", yValue)
-    .attr("temp", legendXValue)
-    .attr("x", d => xScale(xValue(d)))
-    .attr("y", d => yScale(yValue(d)))
-    .attr("width", xBand.bandwidth())
-    .attr("height", yScale.bandwidth())
-    .attr("margin", 0)
-    .attr("opacity", 1)
-    .attr("fill", d => colorScale((colorValue(d))))
-
-  select("#legend").selectAll("legend-mark")
-    .data(colorKeys)
-    .enter()
-    .append("circle")
-      .attr("cx", (d, i) => 20 )
-      .attr("cy", (d, i) => 15 + i * 25)
-      .attr("r", 10)
-      .attr("fill", d => colorScale(d))
       .attr("class", "legend-mark")
-      .attr("opacity", 0.5)
-      .attr("stroke", `var(--secondary-color)`)
-      .attr("stroke-width", "1px")
-      .attr("stroke-linejoin", "round")
-      .attr("stroke-dasharray", "4 1 3 1 2 1")
-      .on("mouseover focus", handleMouseOver)
-      .on("mouseout", handleMouseOut)
+      // .attr("shape-rendering", "crispEdges")
+      .attr("x", d => legendXScale(d))
+      .attr("y", -10)
+      .attr("width", colorBandsScale.bandwidth())
+      .attr("height", 10)
+      .attr("margin", 0)
+      .attr("opacity", 1)
+      .attr("fill", d => legendColorScale((d)))
+    .append("svg:title")
+      .text(t => `${legendColorScale((t))} means about ${format(`+.2~`)(t)}°C`)
+    // .on("mouseover pointerover focus", handleMouseOver)
+    // .on("mouseout pounterout pointerleave", handleMouseOut)
 
-  select("#legend").selectAll("legend-label")
-    .data(colorKeys)
-    .enter()
+  // Legend Label
+  legend
     .append("text")
-      .attr("x", (d, i) => 35)
-      .attr("y", (d, i) => 15 + i * 25)
-      .text(d => d)
-      .attr("text-anchor", "left")
-      .style("alignment-baseline", "middle")
-      .style("font-size", "0.6em")
-      .attr("class", "legend-label")
-      .attr("fill", "var(--primary-color)")
+      .text("Variance from global base temperature (8.66℃)")
+      .attr("font-size", "1em")
+      .attr("x", 30)
+      .attr("y", 30)
+      .style("font-weight", "bold")
 
-    select("#legend")
-      .append("text")
-      .text("Variance from base temperature (8.66℃)")
-      .attr("font-size", "0.9em")
-      .attr("y", 70)
+  // Legend X-Axis
+  const legendXAxis = axisBottom(legendXScale).ticks(8);
 
-
-
-
-  chart.append("g")
-    .attr("id", "x-axis")
-    .attr("transform", `translate(${(innerWidth - 250)}, ${350})`)
+  legend.append("g")
+    .attr("id", "legend-x-axis")
     .style("color", "var(--primary-color)")
     .call(legendXAxis)
-    .call(g => g.selectAll("#x-axis .tick text")
+    .call(g => g.selectAll(".tick text")
       .text(t => `${format(`+.3~`)(t)}°C`)
+      .attr("y", 5)
       )
-    .call(g => g.selectAll("#x-axis .tick line")
-      // .attr("stroke-opacity", 0.3)
-      // .attr("y1", -18)
-      // .attr("y2", 10)
-      // .attr("transform", `translate(${0}, ${-0})`)
-      // .attr("stroke-dasharray", "10 5 5 5")
+    .call(g => g.selectAll(".tick line")
+      .attr("stroke-opacity", 1.0)
+      .attr("y1", 0)
+      .attr("y2", -10)
+      .attr("transform", `translate(${0}, ${-0})`)
+      .attr("stroke", "var(--primary-color)")
+      .attr("stroke-dasharray", "1 1")
       )
     .call(g => g.select(".domain")
       .attr("stroke-opacity", 0.0)
-      .attr("stroke-dasharray", "10 5 5 5"))
-    .append("text")
-      .text("Variance from base temperature (8.66℃)")
-      .attr("font-size", "0.9em")
-      .attr("y", 70)
-      ;
-}
-
-
-
-
-
-
-export const legend = ( 
-  colorKeys, 
-  colorScale, 
-  ) => {
-  
-
+      .attr("stroke-dasharray", "1 1"))
+      .attr("y", 0)
 
 }
