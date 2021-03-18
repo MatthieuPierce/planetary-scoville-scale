@@ -113,7 +113,7 @@ export const makeDivergingLegend = (
       // .attr("shape-rendering", "crispEdges")
       .attr("x", d => legendXScale(d))
       .attr("y", -10)
-      .attr("width", colorBandsScale.bandwidth() + 0.1 )
+      .attr("width", colorBandsScale.bandwidth() + 0.2 ) // aliasing tweak
       .attr("height", 10)
       .attr("margin", 0)
       .attr("opacity", 1)
