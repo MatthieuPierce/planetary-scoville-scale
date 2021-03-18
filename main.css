@@ -1,0 +1,121 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter&display=swap);
+:root {
+  /* --primary-color: hsl(49, 57%, 7%);
+  --secondary-color: hsl(49, 57%, 92%);
+  --doping-color: hsla(20, 70%, 50%, 1);
+  --no-doping-color: hsla(150, 70%, 50%, 1); */
+  --primary-color:	hsl(210, 33%, 9%);
+  --secondary-color: hsla(0, 0%, 98%, 1);
+  --tertiary-color: #d2d3d5;
+  --doping-color: #d14124;
+  --no-doping-color: #20aa3f;
+  --mark-stroke-color: var(--secondary-color);
+  --line-stroke-color: var(--primary-color);
+  --bg-color: hsla(0, 0%, 98%, 1);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  overflow: hidden;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center; */
+}
+
+#container {
+  background: var(--tertiary-color);
+  padding: 0.2rem;
+  margin: 1rem 0 0 0;
+  width: 100%;
+  max-width: 1200px;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 0 0.5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+}
+
+text {
+  font-family: "Inter", sans-serif;
+}
+
+#chart-container {
+  /* display: inline-block; */
+  /* filter: drop-shadow(0rem 5rem 10rem var(--primary-color)); */
+  /* box-shadow: 0rem 0rem 20rem 5rem var(--primary-color); */
+  overflow: hidden;
+  padding: 0;
+  /* padding-bottom calc trick for resizing svg: 100% * height / width ratio */
+  padding-bottom: calc(100% * 9 / 16);
+  position: relative;
+  vertical-align: top;
+  width: 100%;
+  z-index: 2;
+}
+
+#chart {
+  /* display: inline-block; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+#tooltip {
+  color: var(--primary-color);
+  display: grid;
+  place-items: center;
+  place-content: center;
+  background-color: var(--secondary-color);
+  border-radius: 100%;
+  box-sizing: border-box;
+  padding: 10px 0;
+  text-align: center;
+  filter: drop-shadow(1rem 1rem 0.5rem rgba(15, 23, 31, 0.5));
+  font-size: 0.8rem;
+  height: 90px;
+  width: 90px;
+  border-color: var(--tertiary-color);
+  border-style: solid;
+  border-width: 1px;
+}
+
+#tooltip p {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 15px;
+}
+
+#tooltip p.doping {
+  color: var(--doping-color);
+  margin: 0.2rem 0 0 0;
+}
+
+#tooltip p.no-doping {
+  color: var(--no-doping-color);
+  margin: 0.2rem 0 0 0;
+}
+
+/*# sourceMappingURL=main.css.map*/
