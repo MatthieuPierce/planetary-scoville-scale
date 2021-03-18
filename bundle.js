@@ -216,7 +216,8 @@ const makeDivergingLegend = (dataset, colorScale) => {
   //     synthetically-even domain data from divergenceDataToBands made above
 
   legend.selectAll("rect.legend-mark").data(divergenceDataToBands).enter().append("rect").attr("class", "legend-mark") // .attr("shape-rendering", "crispEdges")
-  .attr("x", d => legendXScale(d)).attr("y", -10).attr("width", colorBandsScale.bandwidth()).attr("height", 10).attr("margin", 0).attr("opacity", 1).attr("fill", d => legendColorScale(d)).append("svg:title").text(t => `${legendColorScale(t)} means about ${(0,d3__WEBPACK_IMPORTED_MODULE_0__.format)(`+.2~`)(t)}°C`); // .on("mouseover pointerover focus", handleMouseOver)
+  .attr("x", d => legendXScale(d)).attr("y", -10).attr("width", colorBandsScale.bandwidth() + 0.2) // aliasing tweak
+  .attr("height", 10).attr("margin", 0).attr("opacity", 1).attr("fill", d => legendColorScale(d)).append("svg:title").text(t => `${legendColorScale(t)} means about ${(0,d3__WEBPACK_IMPORTED_MODULE_0__.format)(`+.2~`)(t)}°C`); // .on("mouseover pointerover focus", handleMouseOver)
   // .on("mouseout pounterout pointerleave", handleMouseOut)
   // Legend Label
 
@@ -251,7 +252,7 @@ __webpack_require__.r(__webpack_exports__);
 let marks = (dataset, xScale, yScale, colorScale, xBand) => {
   _chartParameters__WEBPACK_IMPORTED_MODULE_2__.chart.selectAll("rect.cell").data(dataset).enter().append("rect").attr("class", "cell").attr("data-year", d => (0,_accessors__WEBPACK_IMPORTED_MODULE_1__.xValue)(d).getFullYear()).attr("data-month", d => (0,_accessors__WEBPACK_IMPORTED_MODULE_1__.dataMonthValue)(d)).attr("data-temp", _accessors__WEBPACK_IMPORTED_MODULE_1__.colorValue).attr("x", d => xScale((0,_accessors__WEBPACK_IMPORTED_MODULE_1__.xValue)(d))).attr("y", d => yScale((0,_accessors__WEBPACK_IMPORTED_MODULE_1__.yValue)(d))) // .attr("width", innerWidth / (dataset.length / 12))
   // .attr("height", ((innerHeight) / 12) - 65 )
-  .attr("width", xBand.bandwidth()).attr("height", yScale.bandwidth()).attr("margin", 0).attr("opacity", 1).attr("fill", d => colorScale((0,_accessors__WEBPACK_IMPORTED_MODULE_1__.colorValue)(d))) // .attr("stroke", d => colorScale((colorValue(d))))
+  .attr("width", xBand.bandwidth() + 0.05).attr("height", yScale.bandwidth()).attr("margin", 0).attr("opacity", 1).attr("fill", d => colorScale((0,_accessors__WEBPACK_IMPORTED_MODULE_1__.colorValue)(d))) // .attr("stroke", d => colorScale((colorValue(d))))
   // .attr("stroke-width", "1px")
   // .attr("stroke-linejoin", "round")
   // .attr("stroke-dasharray", "4 1 3 1 2 1")

@@ -118,4 +118,68 @@ text {
   margin: 0.2rem 0 0 0;
 }
 
+/* Rather on-the-nose animated planet-cooking background effect */
+@keyframes changeBg {
+  0%, 100% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 5%, transparent 15%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.05) 0% 7%, transparent 30%, rgba(173, 216, 230, 0) 100%);
+  }
+  10% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.15) 0% 5%, transparent 20%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.07) 0% 10%, transparent 31%, lightblue 100%);
+  }
+  15% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.15) 0% 7%, transparent 25%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 32%, lightblue 100%);
+  }
+  20% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 30%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 33%, lightblue 100%);
+  }
+  25% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 35%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 34%, lightblue 100%);
+  }
+  30% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 40%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 35%, lightblue 100%);
+  }
+  35% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 45%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 36%, lightblue 100%);
+  }
+  40% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 50%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 37%, lightblue 100%);
+  }
+  45% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 55%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 38%, lightblue 100%);
+  }
+  50% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 60%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 39%, lightblue 100%);
+  }
+  55% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 65%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 40%, lightblue 100%);
+  }
+  60% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 70%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 41%, lightblue 100%);
+  }
+  65% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 75%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 42%, lightblue 100%);
+  }
+  70% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 80%, lightblue 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 43%, lightblue 100%);
+  }
+  75% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 85%, rgba(173, 216, 230, 0.9) 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 44%, rgba(173, 216, 230, 0.9) 100%);
+  }
+  80% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 90%, rgba(173, 216, 230, 0.8) 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 45%, rgba(173, 216, 230, 0.8) 100%);
+  }
+  85% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 95%, rgba(173, 216, 230, 0.7) 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 46%, rgba(173, 216, 230, 0.7) 100%);
+  }
+  90% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 98%, rgba(173, 216, 230, 0.6) 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 47%, rgba(173, 216, 230, 0.6) 100%);
+  }
+  95% {
+    background-image: linear-gradient(0deg, rgba(255, 0, 0, 0.2) 0% 10%, transparent 100%, rgba(173, 216, 230, 0.5) 100%), linear-gradient(0deg, rgba(255, 0, 0, 0.1) 0% 15%, transparent 50%, rgba(173, 216, 230, 0.5) 100%);
+  }
+}
+body {
+  animation: changeBg 120s infinite alternate;
+}
+
 /*# sourceMappingURL=main.css.map*/
