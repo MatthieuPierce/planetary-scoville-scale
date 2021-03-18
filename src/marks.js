@@ -22,7 +22,7 @@ export let marks = (
       .attr("y", d => yScale(yValue(d)))
       // .attr("width", innerWidth / (dataset.length / 12))
       // .attr("height", ((innerHeight) / 12) - 65 )
-      .attr("width", xBand.bandwidth())
+      .attr("width", xBand.bandwidth() + 0.05)
       .attr("height", yScale.bandwidth())
       .attr("margin", 0)
       .attr("opacity", 1)
