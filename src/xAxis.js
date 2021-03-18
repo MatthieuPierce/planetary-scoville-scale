@@ -44,14 +44,12 @@ export const buildXAxis = (xScale) => {
       .attr("id", "snarky-line")
       .attr("x1", 0 )
       .attr("x2", 0 )
-      .attr("y1", `${-30}`)
+      .attr("y1", `${-21}`)
       .attr("y2", innerHeight)
       .attr("stroke", "var(--primary-color)")
       .attr("stroke-opacity", 1)
       .attr("stroke-width", 0.5)  
       .attr("stroke-dasharray", "9 4 1 5")
-    
-
 
     snarkyGroup.append("text")
       // .text(`Oldest living person born`)
@@ -62,12 +60,12 @@ export const buildXAxis = (xScale) => {
         .style("font-size", `0.9em`)
         .style("font-weight", "bold")
         .attr("x", 5)
-        .attr("y", -30 )
+        .attr("y", -19 )
       
     snarkyGroup.append("circle")
         .attr("cx", 0)
-        .attr("cy", -30 )
-        .attr("r", 3)
+        .attr("cy", -22 )
+        .attr("r", 1.5)
         .attr("opacity", 1)
         .attr("fill", "var(--primary-color)")
         .attr("id", "snarky-circle")

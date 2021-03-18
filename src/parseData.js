@@ -25,6 +25,9 @@ export const parseData = (data) => {
       // ceating precise date 
       preciseDate: new Date(d.year, (d.month - 1)),
 
+      //convert data.month (1-12) to zero-indexed month (0-11)
+      zeroMonth: d.month - 1,
+
       // force 1983-{Month}-01 for jsMonth
       jsMonth: new Date(0, d.month - 1, 1),
 

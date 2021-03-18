@@ -51,7 +51,7 @@ export const handleMouseOver = (event, d) => {
         event.offsetX + 1,
         chartDimensions.width - tooltipDimensions.width - 2
       )}px`)
-    .attr("data-year", xValue(d))
+    .attr("data-year", xValue(d).getFullYear())
     .style("z-index", 20)
     .transition()
     .duration(50)

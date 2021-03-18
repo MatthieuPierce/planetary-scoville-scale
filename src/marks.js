@@ -1,5 +1,5 @@
 import { schemeRdBu } from 'd3';
-import { xValue, yValue, colorValue, } from './accessors';
+import { xValue, yValue, colorValue, dataMonthValue } from './accessors';
 import { chart, margin } from './chartParameters'
 import { handleMouseOver, handleMouseOut } from './handleMouse';
 
@@ -15,8 +15,8 @@ export let marks = (
     .enter()
     .append("rect")
       .attr("class", "cell")
-      .attr("data-year", xValue)
-      .attr("data-month", yValue)
+      .attr("data-year", d => xValue(d).getFullYear())
+      .attr("data-month", d => dataMonthValue(d))
       .attr("data-temp", colorValue)
       .attr("x", d => xScale(xValue(d)))
       .attr("y", d => yScale(yValue(d)))
