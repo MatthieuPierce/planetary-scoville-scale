@@ -124,3 +124,105 @@ text {
   margin: 0.2rem 0 0 0;
 
 }
+
+
+/* Rather on-the-nose animated planet-cooking background effect */
+
+@keyframes changeBg {
+  0%,100% {background-image:
+     linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 5%, transparent 15%, hsla(195, 53%, 79%, 1) 100%),
+     linear-gradient(0deg, hsla(0, 100%, 50%, 0.05) 0% 7%, transparent 30%, hsla(195, 53%, 79%, 0) 100%)
+     ;}
+  
+  10% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.15) 0% 5%, transparent 20%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.07) 0% 10%, transparent 31%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  15% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.15) 0% 7%, transparent 25%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 32%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  20% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 30%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 33%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  25% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 35%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 34%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  30% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 40%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 35%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  35% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 45%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 36%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+
+  40% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 50%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 37%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+  
+  45% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 55%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 38%, hsla(195, 53%, 79%, 1) 100%)
+  ;}
+  50% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 60%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 39%, hsla(195, 53%, 79%, 1) 100%)
+    ;}
+  55% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 65%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 40%, hsla(195, 53%, 79%, 1) 100%)
+    ;}
+  
+  60% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 70%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 41%, hsla(195, 53%, 79%, 1) 100%)
+    ;}
+  65% {background-image: 
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 75%, hsla(195, 53%, 79%, 1) 100%),
+    linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 42%, hsla(195, 53%, 79%, 1) 100%)
+    ;}
+  70% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 80%, hsla(195, 53%, 79%, 1) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 43%, hsla(195, 53%, 79%, 1) 100%)
+    ;}
+  75% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 85%, hsla(195, 53%, 79%, 0.9) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 44%, hsla(195, 53%, 79%, 0.9) 100%)
+    ;}
+  80% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 90%, hsla(195, 53%, 79%, 0.8) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 45%, hsla(195, 53%, 79%, 0.8) 100%)
+    ;}
+  85% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 95%, hsla(195, 53%, 79%, 0.7) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 46%, hsla(195, 53%, 79%, 0.7) 100%)
+    ;}
+  90% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 98%, hsla(195, 53%, 79%, 0.6) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 47%, hsla(195, 53%, 79%, 0.6) 100%)
+    ;}  
+  95% {
+    background-image: 
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.2) 0% 10%, transparent 100%, hsla(195, 53%, 79%, 0.5) 100%),
+      linear-gradient(0deg, hsla(0, 100%, 50%, 0.1) 0% 15%, transparent 50%, hsla(195, 53%, 79%, 0.5) 100%)
+  ;}  
+}
+
+body
+{
+   animation: changeBg 120s infinite alternate;
+}
