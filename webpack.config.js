@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
  
 
 let mode = "development";
@@ -65,6 +66,27 @@ module.exports = {
     new HtmlWebpackPlugin( {
       template: './src/index.html'
     }),
+    new FaviconsWebpackPlugin( {
+      // Your source logo (required)
+      logo: './src/favicon/gradient-circle-01.png', 
+      // Enable caching and optionally specify the path to store cached data
+      cache: true,
+      // The directory to output the assets relative to the webpack output dir.
+      // Relative string paths are allowed here ie '../public/static'. If this
+      // option is not set, `prefix` is used.
+      // outputPath: '/public/static',
+      // Prefix path for generated assets
+      prefix: 'assets/',
+      // Inject html links/metadata (requires html-webpack-plugin).
+      inject: true,
+  
+      // Favicons configuration options
+      // The options specified under favicons: are handed over as is to npm
+      // favicons, see https://github.com/itgalaxy/favicons#usage
+      // favicons: {
+          // appName: null,
+      // } 
+    } )
   ],
   devtool: 'source-map',
   devServer: {

@@ -1,11 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 :root {
-  /* --primary-color: hsl(49, 57%, 7%);
-  --secondary-color: hsl(49, 57%, 92%);
-  --doping-color: hsla(20, 70%, 50%, 1);
-  --no-doping-color: hsla(150, 70%, 50%, 1); */
-
   --primary-color: 	hsl(210, 33%, 9%);
   --secondary-color: hsla(0, 0%, 98%, 1);
   --tertiary-color: #d2d3d5;
